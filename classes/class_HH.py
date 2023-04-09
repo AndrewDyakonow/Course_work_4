@@ -29,6 +29,7 @@ class HH_request(Servises):
         return respon
 
     def create_file(self) -> None:
+        """Сохранение файлов в json"""
         with open(self.json_file_name, 'w', encoding='utf-8') as file:
             data = self.get_data().json()
             json.dump(data, file, ensure_ascii=False, indent=4)
