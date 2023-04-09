@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from validation.validation_utils import Salary, Address, Employer
+from app.validation.validation_utils import Salary, Address, Employer
 
 
 class Vacancies(BaseModel):

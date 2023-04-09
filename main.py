@@ -1,10 +1,9 @@
-import requests
-import json
-from bs4 import BeautifulSoup
+from app.processing.class_json_processing import JsonProcessing
 
 
 def main():
-    pass
+    data = JsonProcessing()
+
 
 
 if __name__ == '__main__':
