@@ -7,7 +7,8 @@ class HH_request(Servises):
     params = {
         'text': 'python',
         'per_page': 50,
-        'area': 113
+        'area': 113,
+        'only_with_salary': True
     }
     url = 'https://api.hh.ru/vacancies'
 
