@@ -24,9 +24,18 @@ class ErrorChoiceTag(UserError):
         return self.message
 
 
-class ErrorChoiceCity(UserError):
+class ErrorNotData(UserError):
     def __init__(self, *args, **kwargs):
-        self.message = args[0] if args else 'Не выбран город для поиска!'
+        self.message = args[0] if args else 'По указанным параметром нет вакансий'
+
+    def __str__(self):
+        return self.message
+
+
+class ErrorNotDataForTop(UserError):
+
+    def __init__(self, *args, **kwargs):
+        self.message = args[0] if args else 'Нет данных для сортировки!'
 
     def __str__(self):
         return self.message

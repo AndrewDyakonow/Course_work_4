@@ -33,7 +33,7 @@ class Salary(BaseModel):
     @classmethod
     def validate_from(cls, value):
         if value is None:
-            return "-"
+            return 0
         else:
             return value
 
@@ -41,7 +41,7 @@ class Salary(BaseModel):
     @classmethod
     def validate_to(cls, value):
         if value is None:
-            return "-"
+            return 0
         else:
             return value
 
@@ -73,10 +73,11 @@ class Vacancies(BaseModel):
     def beautiful_output(self):
         return f'Вакансия:         {self.name}\n' \
                f'Организация:      {self.employer.name}\n' \
-               f'Зарплата:         от {self.salary.from_} до {self.salary.to} {self.salary.currency}\n' \
+               f'Зарплата:         от {self.salary.from_ if self.salary.from_ else "-"} до ' \
+               f'{self.salary.to if self.salary.to else "-"} {self.salary.currency}\n' \
                f'Адрес:            {self.address.raw if self.address != "Не указан" else "Не указан"}\n' \
                f'Ссылка:           {self.alternate_url}\n' \
-               f'Время размещения: {self.published_at}\n'
+               f'Дата размещения:  {self.published_at}\n'
 
 
 

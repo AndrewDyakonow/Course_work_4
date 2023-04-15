@@ -8,13 +8,12 @@ class JsonProcessing:
     Urls = 'side_file/result.json'
     json_file_name = 'side_file/result.json'
 
-    # def __init__(self):
-    #     self.create_file()
-
-    def create_file(self) -> None:
+    @classmethod
+    def create_file(cls, text) -> None:
         """Сохранение файлов в json"""
-        with open(self.json_file_name, 'w', encoding='utf-8') as file:
-            data = HH_request.get_data()
+        with open(cls.json_file_name, 'w', encoding='utf-8') as file:
+            ex_data = HH_request(text)
+            data = ex_data.get_data()
             json.dump(data, file, ensure_ascii=False, indent=4)
 
     @classmethod
