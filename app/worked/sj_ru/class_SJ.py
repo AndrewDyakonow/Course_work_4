@@ -9,17 +9,27 @@ class SJ_request(Servises):
         self.text = text
         self.area = area
         self.headers = {
-            'Host': 'api.superjob.ru',
             'X-Api-App-Id': 'v3.r.137458475.3e0b7f3e22120727bd7bd1b4e4d415d868748ffb.a90def118f47a2abcd98b58a94b1005dd2bb79a7',
-            'Authorization': 'Bearer r.000000000000001.example.token',
         }
         self.params = {
-            'text': self.text,
+
         }
-        self.url = f'https://api.superjob.ru'
+        self.url = f'https://api.superjob.ru/2.0/vacancies/'
 
     def autorization(self):
-        'https: // www.superjob.ru / authorize /'
+        respon = requests.get(
+            url=f'https://api.superjob.ru/2.0/oauth2/password/',
+            headers={
+                'X-Api-App-Id': 'v3.r.137458475.3e0b7f3e22120727bd7bd1b4e4d415d868748ffb.a90def118f47a2abcd98b58a94b1005dd2bb79a7',
+            },
+            params={
+                'login': 'dronramone@mail.ru',
+                'password': 'Created_1990',
+                'client_id': '2265',
+                'client_secret': 'v3.r.137458475.3e0b7f3e22120727bd7bd1b4e4d415d868748ffb.a90def118f47a2abcd98b58a94b1005dd2bb79a7',
+            }
+        )
+        print(respon.text)
 
     def get_data(self) -> requests.Response:
         """Запрос"""
@@ -28,12 +38,12 @@ class SJ_request(Servises):
             headers=self.headers,
             params=self.params,
         )
-        return respon.json()
+        return respon.text
 
 
 a = SJ_request()
 print(a.get_data())
-
+print(1)
 
     # Authorization: Bearer r.000000010000001.example.access_token
     # Content-Type: application/x-www-form-urlencoded
