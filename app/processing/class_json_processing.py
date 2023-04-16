@@ -1,5 +1,3 @@
-from pydantic import ValidationError
-from app.validation.validation_vacancies import Vacancies
 from app.worked.hh_ru.class_HH import HH_request
 import json
 

@@ -78,9 +78,3 @@ class Vacancies(BaseModel):
                f'Адрес:            {self.address.raw if self.address != "Не указан" else "Не указан"}\n' \
                f'Ссылка:           {self.alternate_url}\n' \
                f'Дата размещения:  {self.published_at}\n'
-
-
-
-               # f'{self.salary.currency} до {self.salary.to if self.salary else "-"} {self.salary}'
-
-

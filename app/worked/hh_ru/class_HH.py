@@ -12,7 +12,7 @@ class HH_request(Servises):
         self.params = {
                 'text': self.text,
                 'per_page': 50,
-                'area': 113,
+                'area': self.area,
                 'only_with_salary': True
             }
 
